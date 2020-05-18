@@ -18,7 +18,6 @@ function validate(data) {
             alert (`Уважаемый ${firstName}, заявка создана!`);
         } else {
             alert (`Уважаемая ${firstName}, заявка создана!`);
-            console.log(checkLogin(login));
         }
     }
 }
@@ -28,7 +27,7 @@ function checkLogin(login) {
 
     for (let i = 0; i < arrOfLogins.length; i++) {
         if (login === arrOfLogins[i]) {
-            return 0;
+            return false;
         }
-    } return 1;
+    } return true;
 }
