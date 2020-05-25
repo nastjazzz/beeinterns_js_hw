@@ -14,7 +14,7 @@ function resolve1(inputObject) {
   for (let key in inputObject) {
     newObj.number = key;
   }
-  return newObj; // { 'one': 'number' }
+  return newObj;
 };
 
 const result1 = resolve1(firstObject);
