@@ -1,0 +1,196 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background: #282828;
+	font-family: 'Abel', sans-serif;;
+}
+
+/* КОНТЕЙНЕР ДЛЯ ЧАТА */
+.chat-bot__wrapper {
+	max-width: 700px;
+	margin: 0 auto;
+	height: 100vh;
+
+}
+
+/* ЗАГОЛОВОК */
+.chat-bot__title {
+	height: 65px;
+	margin-left: 20px;
+	margin-bottom: 40px;
+	font-family: 'Halant', serif;
+	font-weight: bold;
+	font-size: 58px;
+	line-height: 91px;
+
+	color: #FFFFFF;
+}
+
+/* ВЕСЬ ЧАТ */
+.chat-bot {
+	display: flex;
+	flex-direction: column;
+	min-height: 90vh;
+
+	font-size: 20px;
+	line-height: 25px;
+	color: #929292;
+
+	padding: 0 40px 40px;
+
+	border: 1px solid #EDEDED;
+	border-radius: 37.5px;	
+}
+
+/* ДИСПЛЕЙ ДЛЯ ОТОБРАЖЕНИЯ СООБЩЕНИЙ */
+.chat-bot__display {
+	height: 75vh;
+	flex-grow: 1;
+
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: baseline;
+	overflow-y: auto;
+}
+
+/* ОБЕРТКА ДЛЯ СООБЩЕНИЙ */
+.message__wrapper {
+	height: 60px;
+	flex-shrink: 0;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	border-radius: 32px;
+	padding: 13px 30px;
+	background: #F3F3F3;
+}
+
+/* КНОПКА ОТПАВКИ СООБЩЕНИЯ */
+.send-button {
+	border: none;
+	background: none;
+	outline: none;
+	cursor: pointer;
+}
+
+/* ПОЛЕ ВВОДА СООБЩЕНИЯ */
+.message-text {
+	width: 200px;
+	font-family: 'Abel', sans-serif;
+	font-size: 20px;
+	line-height: 25px;
+	background: inherit;
+	color: #929292;
+
+	resize: none;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+
+/* блок с точками */
+.dots {
+	display: flex;
+}
+
+/* точка  */
+.dot {
+	width: 7px;
+	height: 7px;
+	background: #929292;
+	border-radius: 100%;
+	margin-right: 5px;
+
+	animation-duration: 2s;
+  animation-iteration-count: 0;
+  animation-name: pulsing;
+}
+
+/* непрерывная анимация  */
+.animated {
+	animation-iteration-count: infinite;
+}
+
+/* анимация  */
+@keyframes pulsing {
+	0% {
+		transform: scale(0.5, 0.5);
+	}
+	50% {
+		transform: scale(1.0, 1.0);
+	}
+	100% {
+		transform: scale(0.5, 0.5);
+	}
+}
+
+/* СООБЩЕНИЯ */
+.message {
+	position: relative;
+
+	color: black;
+	margin-left: 90px;
+	margin-bottom: 30px;
+	border-radius: 35px;
+	padding: 15px 10px;
+}
+/* СООБЩЕНИЕ ЮЗЕРА */
+.user-text {
+	background: #F9C35B;
+}
+/* СООБЩЕНИЕ БОТА */
+.bot-text {
+	background: #F1F0F0;
+}
+
+.message::before {
+	position: absolute;
+	top: 0;
+	left: -90px;
+	width: 70px;
+	height: 70px;
+}
+
+/* ФОТО ПОЛЬЗОВАТЕЛЯ */
+.user-text::before {
+	content: "";
+	background: url(../img/chel.svg);
+}
+
+/* АВАТАР ДЛЯ БОТА */
+.bot-text:before {
+	content: "";
+	background: url(../img/bot.svg);
+}
+
+@media (max-width: 700px ) {
+	.chat-bot {
+		padding: 0;
+		border: none;
+	}
+	.chat-bot__title {
+		margin-bottom: 20px;
+
+	}
+	.chat-bot__display {
+		padding: 0 20px 20px;
+	}
+	.message__wrapper {
+		width: auto;
+		height: 65px;
+		background: #F3F3F3;		
+		border-radius: unset;
+	}
+}
+
+@media (max-width: 600px) {
+	.chat-bot {
+		margin-bottom: 0px;
+	}
+}
