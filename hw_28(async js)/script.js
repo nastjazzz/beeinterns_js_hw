@@ -26,9 +26,7 @@ const parallelQuery = async () => {
     }
 
     if (counter === 2) {
-        let message = document.createElement('div');
-        message.innerText = 'Server error';
-        main.appendChild(message);
+        console.log('Server error');
     }
 };
 
