@@ -1,19 +1,23 @@
 const button = document.querySelector('.button');
-const field = document.querySelector('.field');
-button.addEventListener('click', getNumbers);
+const wrap = document.querySelector('.button__wrap');
+let iframe = document.getElementsByTagName('iframe')[0];
+let number;
 
-function getNumbers(key, value) {
-    let number = prompt('Введите, пожалуйста, число');
-    console.log(number);
-    sessionStorage.setItem('number', number);
+button.addEventListener('click', putNumberInFrame);
+
+function putNumberInFrame() {
+    number = prompt('Введите, пожалуйста, число');
+    let main = iframe.contentWindow.document.querySelector('.main');
+    main.innerText = number;
+    writeResult();
 }
-//
-// let win = window.frames.test;
-//
-// win.postMessage("number", "http://localhost:4444/");
 
-let x = document.getElementsByTagName("iframe")[0].contentWindow;
-//x = window.frames[0];
+function writeResult() {
+    let res = document.createElement('div');
+    res.innerText = Number(number) + 1;
+    wrap.appendChild(res);
+}
 
-x.document.getElementsByTagName("body")[0].style.backgroundColor = "blue";
-// this would turn the 1st iframe in document blue.
+window.onbeforeunload = function() {
+    return false;
+}
