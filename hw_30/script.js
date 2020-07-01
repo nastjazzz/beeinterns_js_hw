@@ -7,14 +7,25 @@ button.addEventListener('click', putNumberInFrame);
 
 function putNumberInFrame() {
     number = prompt('Введите, пожалуйста, число');
-    let main = iframe.contentWindow.document.querySelector('.main');
-    main.innerText = number;
-    writeResult();
+    if (checkNumber(number.trim())) {
+        let main = iframe.contentWindow.document.querySelector('.main');
+        main.innerText = number;
+        writeResult();
+    } else {
+        console.log('Неправильный ввод');
+    }
+}
+
+function checkNumber(nbr) {
+    if (nbr.length === 0 || isNaN(Number(nbr))) {
+        return false;
+    }
+    return true;
 }
 
 function writeResult() {
     let res = document.createElement('div');
-    res.innerText = Number(number) + 1;
+    res.innerText = +number + 1;
     wrap.appendChild(res);
 }
 
